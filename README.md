@@ -1,7 +1,8 @@
 # ts-ulm-dsl
 
-[![npm version](https://img.shields.io/npm/v/ts-ulm-dsl.svg)](https://www.npmjs.org/package/ts-ulm-dsl/)
-[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/DerStimmler/ts-ulm-dsl/blob/master/LICENSE.md)
+[![npm version](https://img.shields.io/npm/v/ts-ulm-dsl)](https://www.npmjs.org/package/ts-ulm-dsl/)
+[![npm downloads](https://img.shields.io/npm/dt/ts-ulm-dsl)](https://www.npmjs.org/package/ts-ulm-dsl/)
+[![GitHub license](https://img.shields.io/github/license/DerStimmler/ts-ulm-dsl)](https://github.com/DerStimmler/ts-ulm-dsl/blob/master/LICENSE.md)
 
 Typescript library for fetching emails from the temp mail service [ulm-dsl](https://ulm-dsl.de/).
 
@@ -18,10 +19,14 @@ npm install ts-ulm-dsl
 The following examples use the email address `max.mustermann@ulm-dsl.de`. Just replace the inbox name `max.mustermann`
 to match your address.
 
+Every method is async and therefore returns a promise. You can either use `await` to resolve the promise or use the `.then()` method to execute a callback as soon as the promise settles.
+
 ### Initialization
 
+Just import the client from your node_modules.
+
 ```typescript
-//TODO
+import ulmDslClient from "ts-ulm-dsl";
 ```
 
 ### Get Inbox
@@ -30,7 +35,7 @@ You can fetch the basic information **except the body** for all emails in an inb
 passing the inbox name.
 
 ```typescript
-//TODO
+const emails = await ulmDslClient.getInbox("max.mustermann");
 ```
 
 ### Get Mail by Id
@@ -39,7 +44,7 @@ You can get all available information for a specific email by calling the `getMa
 name and email identifier.
 
 ```typescript
-//TODO
+const email = await ulmDslClient.getMailById("max.mustermann", 7);
 ```
 
 ### Get Mails
@@ -48,7 +53,7 @@ You can get all available information for all emails in an inbox by calling the 
 name.
 
 ```typescript
-//TODO
+const emails = await ulmDslClient.getMails("max.mustermann");
 ```
 
 ### API rate limits
@@ -63,3 +68,9 @@ The api is limited to about 100 requests per minute. So you should keep in mind 
 
 So based on your inbox size you should think twice before you fetch all emails. Maybe it's better to just fetch the
 inbox and then retrieve a single email by id.
+
+## Related
+
+Here are some related projects:
+
+- [CSharpUlmDsl](https://github.com/DerStimmler/CSharpUlmDsl): C# version of this library
