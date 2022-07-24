@@ -1,9 +1,11 @@
 import { UlmDslService } from "./ulm-dsl-service";
-import { UlmDslMailBasicInfo } from "./models";
-import { UlmDslMailRecipient } from "./models";
-import { UlmDslMailSender } from "./models";
+import {
+  UlmDslMail,
+  UlmDslMailBasicInfo,
+  UlmDslMailRecipient,
+  UlmDslMailSender,
+} from "./models";
 import { decodeQuotedPrintable } from "./utils/string-utils";
-import { UlmDslMail } from "./models";
 
 export class UlmDslClient {
   private _service: UlmDslService;
