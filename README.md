@@ -74,3 +74,4 @@ inbox and then retrieve a single email by id.
 Here are some related projects:
 
 - [CSharpUlmDsl](https://github.com/DerStimmler/CSharpUlmDsl): C# version of this library
+- [ngx-ulm-dsl](https://github.com/DerStimmler/ngx-ulm-dsl): Angular wrapper for this library

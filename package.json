@@ -27,6 +27,14 @@
   ],
   "author": "Stimmler",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DerStimmler/ts-ulm-dsl"
+  },
+  "bugs": {
+    "url": "https://github.com/DerStimmler/ts-ulm-dsl/issues"
+  },
+  "homepage": "https://github.com/DerStimmler/ts-ulm-dsl",
   "devDependencies": {
     "@types/jest": "28.1.4",
     "@types/quoted-printable": "1.0.0",
