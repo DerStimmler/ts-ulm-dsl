@@ -1,3 +1,4 @@
+/** @internal */
 export class ApiAddresses {
   private static readonly baseAddress = "https://ulm-dsl.de";
 

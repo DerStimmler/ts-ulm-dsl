@@ -3,6 +3,7 @@ import { ApiAddresses } from "./utils/api-addresses";
 import { XMLParser } from "fast-xml-parser";
 import { Feed } from "./models/feed";
 
+/** @internal */
 export class UlmDslService {
   private _parse: XMLParser;
 
