@@ -1,55 +1,56 @@
 {
-  "name": "ts-ulm-dsl",
-  "version": "1.1.0",
-  "description": "Typescript library for fetching emails from the temp mail service ulm-dsl.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "test": "jest",
-    "build": "tsc",
-    "lint": "eslint .",
-    "format": "prettier --write src/**/*.ts"
-  },
-  "files": [
-    "dist/**/*"
-  ],
-  "keywords": [
-    "npm",
-    "ts",
-    "typescript",
-    "mail",
-    "javascript",
-    "library",
-    "ulm",
-    "dsl",
-    "ulm-dsl",
-    "temp"
-  ],
-  "author": "Stimmler",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/DerStimmler/ts-ulm-dsl"
-  },
-  "bugs": {
-    "url": "https://github.com/DerStimmler/ts-ulm-dsl/issues"
-  },
-  "homepage": "https://github.com/DerStimmler/ts-ulm-dsl",
-  "devDependencies": {
-    "@types/jest": "28.1.4",
-    "@types/quoted-printable": "1.0.0",
-    "@typescript-eslint/eslint-plugin": "5.30.5",
-    "@typescript-eslint/parser": "5.30.5",
-    "eslint": "8.19.0",
-    "eslint-plugin-jest": "26.5.3",
-    "jest": "28.1.2",
-    "prettier": "2.7.1",
-    "ts-jest": "28.0.5",
-    "typescript": "4.7.4"
-  },
-  "dependencies": {
-    "axios": "0.27.2",
-    "fast-xml-parser": "4.0.8",
-    "quoted-printable": "1.0.1"
-  }
+	"name": "ts-ulm-dsl",
+	"version": "1.1.0",
+	"description": "Typescript library for fetching emails from the temp mail service ulm-dsl.",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"test": "jest",
+		"build": "tsc",
+		"lint": "eslint .",
+		"format": "prettier --write src/**/*.ts"
+	},
+	"files": [
+		"dist/**/*"
+	],
+	"keywords": [
+		"npm",
+		"ts",
+		"typescript",
+		"mail",
+		"javascript",
+		"library",
+		"ulm",
+		"dsl",
+		"ulm-dsl",
+		"temp"
+	],
+	"author": "Stimmler",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/DerStimmler/ts-ulm-dsl"
+	},
+	"bugs": {
+		"url": "https://github.com/DerStimmler/ts-ulm-dsl/issues"
+	},
+	"homepage": "https://github.com/DerStimmler/ts-ulm-dsl",
+	"devDependencies": {
+		"@types/jest": "28.1.4",
+		"@types/quoted-printable": "1.0.0",
+		"@typescript-eslint/eslint-plugin": "5.30.5",
+		"@typescript-eslint/parser": "5.30.5",
+		"eslint": "8.19.0",
+		"eslint-plugin-jest": "26.5.3",
+		"jest": "28.1.2",
+		"jest-junit": "15.0.0",
+		"prettier": "2.7.1",
+		"ts-jest": "28.0.5",
+		"typescript": "4.7.4"
+	},
+	"dependencies": {
+		"axios": "0.27.2",
+		"fast-xml-parser": "4.0.8",
+		"quoted-printable": "1.0.1"
+	}
 }

@@ -2,6 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/ts-ulm-dsl)](https://www.npmjs.org/package/ts-ulm-dsl/)
 [![npm downloads](https://img.shields.io/npm/dt/ts-ulm-dsl)](https://www.npmjs.org/package/ts-ulm-dsl/)
+![build](https://github.com/DerStimmler/ts-ulm-dsl/actions/workflows/build.yml/badge.svg)
 [![GitHub license](https://img.shields.io/github/license/DerStimmler/ts-ulm-dsl)](https://github.com/DerStimmler/ts-ulm-dsl/blob/master/LICENSE.md)
 
 Typescript library for fetching emails from the temp mail service [ulm-dsl](https://ulm-dsl.de/).
