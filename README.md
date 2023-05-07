@@ -22,6 +22,8 @@ to match your address.
 
 Every method is async and therefore returns a promise. You can either use `await` to resolve the promise or use the `.then()` method to execute a callback as soon as the promise settles.
 
+Note that you have to fetch your inbox once before you can receive emails at your address. Your address stays active for 14 days. This period renews for every request.
+
 ### Initialization
 
 Just import the client from your node_modules.
