@@ -5,7 +5,6 @@ on:
   push:
     branches:
       - master
-  pull_request:
 
 jobs:
   build:
@@ -27,16 +26,22 @@ jobs:
       - name: Test
         run: npm run test
 
-      - name: Upload jest Test Results
+      - name: Upload jest test results
         uses: actions/upload-artifact@v3
         with:
           name: jest-test-results
           path: test-results/test-results.xml
         if: ${{ always() }}
 
-      - name: Upload jest Test Coverage
+      - name: Upload jest test coverage
         uses: actions/upload-artifact@v3
         with:
           name: jest-test-coverage
           path: coverage/**
+        if: ${{ always() }}
+
+      - name: Upload jest test coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: coverage/**
         if: ${{ always() }}
