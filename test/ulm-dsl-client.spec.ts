@@ -1,5 +1,4 @@
 import { UlmDslClient } from "../src/ulm-dsl-client";
-import axios from "axios";
 import {
   emptyInboxXml,
   inboxXml,
@@ -10,12 +9,14 @@ import {
   singleMail5267Xml,
 } from "./response-mocks";
 
-jest.mock("axios");
-const mockedAxios = axios as jest.Mocked<typeof axios>;
-
 describe("UlmDslClient", () => {
   it("getInbox", async () => {
-    mockedAxios.get.mockResolvedValueOnce(inboxXml);
+    global.fetch = jest.fn().mockImplementationOnce(() =>
+      Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(inboxXml),
+      }),
+    );
 
     const client = new UlmDslClient();
     const inbox = await client.getInbox("max.mustermann");
@@ -25,7 +26,12 @@ describe("UlmDslClient", () => {
   });
 
   it("emptyInbox", async () => {
-    mockedAxios.get.mockResolvedValueOnce(emptyInboxXml);
+    global.fetch = jest.fn().mockImplementationOnce(() =>
+      Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve(emptyInboxXml),
+      }),
+    );
 
     const client = new UlmDslClient();
     const inbox = await client.getInbox("max.mustermann");
@@ -34,8 +40,20 @@ describe("UlmDslClient", () => {
   });
 
   it("getMailById", async () => {
-    mockedAxios.get.mockResolvedValueOnce(inboxXml);
-    mockedAxios.get.mockResolvedValueOnce(singleMail5267Xml);
+    global.fetch = jest
+      .fn()
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve(inboxXml),
+        }),
+      )
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve(singleMail5267Xml),
+        }),
+      );
 
     const client = new UlmDslClient();
     const mail = await client.getMailById("max.mustermann", 5267);
@@ -44,9 +62,26 @@ describe("UlmDslClient", () => {
   });
 
   it("getMails", async () => {
-    mockedAxios.get.mockResolvedValueOnce(inboxXml);
-    mockedAxios.get.mockResolvedValueOnce(singleMail5267Xml);
-    mockedAxios.get.mockResolvedValueOnce(singleMail4305Xml);
+    global.fetch = jest
+      .fn()
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve(inboxXml),
+        }),
+      )
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve(singleMail5267Xml),
+        }),
+      )
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve(singleMail4305Xml),
+        }),
+      );
 
     const client = new UlmDslClient();
     const mails = await client.getMails("max.mustermann");
@@ -57,8 +92,20 @@ describe("UlmDslClient", () => {
   });
 
   it("invalidId", async () => {
-    mockedAxios.get.mockResolvedValueOnce(inboxXml);
-    mockedAxios.get.mockResolvedValueOnce(invalidId4Xml);
+    global.fetch = jest
+      .fn()
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve(inboxXml),
+        }),
+      )
+      .mockImplementationOnce(() =>
+        Promise.resolve({
+          status: 200,
+          json: () => Promise.resolve(invalidId4Xml),
+        }),
+      );
 
     const client = new UlmDslClient();
     const mail = await client.getMailById("max.mustermann", 4);
@@ -69,10 +116,10 @@ describe("UlmDslClient", () => {
   it("invalidName", async () => {
     const client = new UlmDslClient();
     const result = async () => await client.getMailById("", 4);
-    await expect(result()).rejects.toThrowError("Invalid name.");
+    await expect(result()).rejects.toThrow("Invalid name.");
     const result2 = async () => await client.getMails("");
-    await expect(result2()).rejects.toThrowError("Invalid name.");
+    await expect(result2()).rejects.toThrow("Invalid name.");
     const result3 = async () => await client.getInbox("");
-    await expect(result3()).rejects.toThrowError("Invalid name.");
+    await expect(result3()).rejects.toThrow("Invalid name.");
   });
 });

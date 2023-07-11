@@ -1,4 +1,3 @@
-import axios from "axios";
 import { ApiAddresses } from "./utils/api-addresses";
 import { XMLParser } from "fast-xml-parser";
 import { Feed } from "./models/feed";
@@ -30,9 +29,11 @@ export class UlmDslService {
   }
 
   private async fetchFeed(uri: string): Promise<Feed> {
-    const response = await axios.get<string>(uri);
+    const response = await fetch(uri);
 
-    const content = response.data;
+    const json = await response.json();
+
+    const content = json.data;
 
     if (response.status !== 200) throw new Error(content);
 
