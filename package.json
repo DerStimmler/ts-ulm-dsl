@@ -1,7 +1,7 @@
 {
 	"name": "ts-ulm-dsl",
 	"version": "2.0.0",
-	"description": "Typescript library for fetching emails from the temp mail service ulm-dsl.",
+	"description": "Typescript library for fetching emails from the temp mail service ulm-dsl",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {

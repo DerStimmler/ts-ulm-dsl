@@ -6,7 +6,7 @@
 [![codecov](https://codecov.io/gh/DerStimmler/ts-ulm-dsl/branch/master/graph/badge.svg?token=HZ7AKB0UUA)](https://codecov.io/gh/DerStimmler/ts-ulm-dsl)
 [![GitHub license](https://img.shields.io/github/license/DerStimmler/ts-ulm-dsl)](https://github.com/DerStimmler/ts-ulm-dsl/blob/master/LICENSE.md)
 
-Typescript library for fetching emails from the temp mail service [ulm-dsl](https://ulm-dsl.de/).
+Typescript library for fetching emails from the temp mail service [ulm-dsl](https://ulm-dsl.de/)
 
 ## Installation
 
@@ -24,6 +24,8 @@ to match your address.
 Every method is async and therefore returns a promise. You can either use `await` to resolve the promise or use the `.then()` method to execute a callback as soon as the promise settles.
 
 Note that you have to fetch your inbox once before you can receive emails at your address. Your address stays active for 14 days. This period renews for every request.
+
+Furthermore there are no CORS headers included in the api response. Accordingly, CORS errors may occur when using this library in a browser.
 
 ### Initialization
 
