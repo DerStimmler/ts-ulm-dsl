@@ -30,7 +30,7 @@ Note that you have to fetch your inbox once before you can receive emails at you
 Just import the client from your node_modules.
 
 ```typescript
-import ulmDslClient from "ts-ulm-dsl";
+import { ulmDslClient } from "ts-ulm-dsl";
 ```
 
 ### Get Inbox

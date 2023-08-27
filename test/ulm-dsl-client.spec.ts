@@ -1,4 +1,3 @@
-import { UlmDslClient } from "../src/ulm-dsl-client";
 import {
   emptyInboxXml,
   inboxXml,
@@ -8,6 +7,7 @@ import {
   singleMail5267,
   singleMail5267Xml,
 } from "./response-mocks";
+import { ulmDslClient } from "../src";
 
 describe("UlmDslClient", () => {
   it("getInbox", async () => {
@@ -18,8 +18,7 @@ describe("UlmDslClient", () => {
       }),
     );
 
-    const client = new UlmDslClient();
-    const inbox = await client.getInbox("max.mustermann");
+    const inbox = await ulmDslClient.getInbox("max.mustermann");
 
     expect(inbox).toHaveLength(2);
     expect(inbox).toStrictEqual(inbox);
@@ -33,8 +32,7 @@ describe("UlmDslClient", () => {
       }),
     );
 
-    const client = new UlmDslClient();
-    const inbox = await client.getInbox("max.mustermann");
+    const inbox = await ulmDslClient.getInbox("max.mustermann");
 
     expect(inbox).toHaveLength(0);
   });
@@ -55,8 +53,7 @@ describe("UlmDslClient", () => {
         }),
       );
 
-    const client = new UlmDslClient();
-    const mail = await client.getMailById("max.mustermann", 5267);
+    const mail = await ulmDslClient.getMailById("max.mustermann", 5267);
 
     expect(mail).toStrictEqual(singleMail5267);
   });
@@ -83,8 +80,7 @@ describe("UlmDslClient", () => {
         }),
       );
 
-    const client = new UlmDslClient();
-    const mails = await client.getMails("max.mustermann");
+    const mails = await ulmDslClient.getMails("max.mustermann");
 
     expect(mails).toHaveLength(2);
     expect(mails).toContainEqual(singleMail5267);
@@ -107,19 +103,17 @@ describe("UlmDslClient", () => {
         }),
       );
 
-    const client = new UlmDslClient();
-    const mail = await client.getMailById("max.mustermann", 4);
+    const mail = await ulmDslClient.getMailById("max.mustermann", 4);
 
     expect(mail).toStrictEqual(null);
   });
 
   it("invalidName", async () => {
-    const client = new UlmDslClient();
-    const result = async () => await client.getMailById("", 4);
+    const result = async () => await ulmDslClient.getMailById("", 4);
     await expect(result()).rejects.toThrow("Invalid name.");
-    const result2 = async () => await client.getMails("");
+    const result2 = async () => await ulmDslClient.getMails("");
     await expect(result2()).rejects.toThrow("Invalid name.");
-    const result3 = async () => await client.getInbox("");
+    const result3 = async () => await ulmDslClient.getInbox("");
     await expect(result3()).rejects.toThrow("Invalid name.");
   });
 });
