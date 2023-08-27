@@ -31,9 +31,7 @@ export class UlmDslService {
   private async fetchFeed(uri: string): Promise<Feed> {
     const response = await fetch(uri);
 
-    const json = await response.json();
-
-    const content = json.data;
+    const content = await response.json();
 
     if (response.status !== 200) throw new Error(content);
 

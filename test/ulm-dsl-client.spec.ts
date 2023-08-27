@@ -13,8 +13,8 @@ describe("UlmDslClient", () => {
   it("getInbox", async () => {
     global.fetch = jest.fn().mockImplementationOnce(() =>
       Promise.resolve({
-        status: 200,
-        json: () => Promise.resolve(inboxXml),
+        status: inboxXml.status,
+        json: () => Promise.resolve(inboxXml.data),
       }),
     );
 
@@ -28,8 +28,8 @@ describe("UlmDslClient", () => {
   it("emptyInbox", async () => {
     global.fetch = jest.fn().mockImplementationOnce(() =>
       Promise.resolve({
-        status: 200,
-        json: () => Promise.resolve(emptyInboxXml),
+        status: emptyInboxXml.status,
+        json: () => Promise.resolve(emptyInboxXml.data),
       }),
     );
 
@@ -44,14 +44,14 @@ describe("UlmDslClient", () => {
       .fn()
       .mockImplementationOnce(() =>
         Promise.resolve({
-          status: 200,
-          json: () => Promise.resolve(inboxXml),
+          status: inboxXml.status,
+          json: () => Promise.resolve(inboxXml.data),
         }),
       )
       .mockImplementationOnce(() =>
         Promise.resolve({
-          status: 200,
-          json: () => Promise.resolve(singleMail5267Xml),
+          status: singleMail5267Xml.status,
+          json: () => Promise.resolve(singleMail5267Xml.data),
         }),
       );
 
@@ -66,20 +66,20 @@ describe("UlmDslClient", () => {
       .fn()
       .mockImplementationOnce(() =>
         Promise.resolve({
-          status: 200,
-          json: () => Promise.resolve(inboxXml),
+          status: inboxXml.status,
+          json: () => Promise.resolve(inboxXml.data),
         }),
       )
       .mockImplementationOnce(() =>
         Promise.resolve({
-          status: 200,
-          json: () => Promise.resolve(singleMail5267Xml),
+          status: singleMail5267Xml.status,
+          json: () => Promise.resolve(singleMail5267Xml.data),
         }),
       )
       .mockImplementationOnce(() =>
         Promise.resolve({
-          status: 200,
-          json: () => Promise.resolve(singleMail4305Xml),
+          status: singleMail4305Xml.status,
+          json: () => Promise.resolve(singleMail4305Xml.data),
         }),
       );
 
@@ -96,14 +96,14 @@ describe("UlmDslClient", () => {
       .fn()
       .mockImplementationOnce(() =>
         Promise.resolve({
-          status: 200,
-          json: () => Promise.resolve(inboxXml),
+          status: inboxXml.status,
+          json: () => Promise.resolve(inboxXml.data),
         }),
       )
       .mockImplementationOnce(() =>
         Promise.resolve({
-          status: 200,
-          json: () => Promise.resolve(invalidId4Xml),
+          status: invalidId4Xml.status,
+          json: () => Promise.resolve(invalidId4Xml.data),
         }),
       );
 
